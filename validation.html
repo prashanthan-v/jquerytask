@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            $('#dob').on("change",function(){
+              //getting date from date picker and cal the age and add the value to age
+                var dob = new Date($(this).val());
+                console.log(dob)
+                var today = new Date();
+                console.log(today.getFullYear())
+                var age = today.getFullYear() - dob.getFullYear();
+                
+                $('#age').val(age);
+            });
+            // var value;
+            // $("#namebox").focus(function(){
+            //      value = $(this).val()
+
+            // })
+            // add blur event to find if the entered value >4
+            $("#namebox").blur(function(){
+                var value = $(this).val()
+                if(!isNaN(value)){
+                    $("#alert").text(`Entered value is other than alphabet`)
+                    return;
+                }
+                if(value.length<4){
+                  $(this).css("border"," 3px solid red")
+                //   $(this).after("<p style='color:red;'> Alert :plz enter the name more than 4 letters</p>")
+                $("#alert").text(`Entered word is less than 4 character`)
+                }
+            })
+            $("button").on("click",function(){
+                  console.log("hello")
+                  var failed = false;
+                  var failedsubjects=[]
+                  var sum =0
+                  // selecting all the input with id ans together
+                $(".ans").each(function(){
+                  
+                      var val =   $(this).val()
+                      
+                      var value = parseInt(val)
+                      if(value>100){
+                        sum =0;
+                        return false;
+                      }
+                     if(value<30){
+                        failed = true;
+                        var subject = $(this).data('subject')
+                       failedsubjects.push(subject)
+                     }
+                   
+                     if(value>30&&value<=100){
+                          sum = sum+value;
+                     }
+                      
+                      
+                })
+                // if the result is not failed
+                if(!failed){
+                    console.log(sum)
+                    var percentage = sum/5
+                    console.log(percentage)
+                    if(sum==0){
+                        $("#resultdisplay").text(`You entered number is greater than 100`).fadeIn("9000")
+                    }
+                    else{
+                        $("#resultdisplay").text(`You passed the Exam with ${percentage}%`).fadeTo("slow",0.7).css("background-color", "green")
+                    }
+                   
+                    
+
+                }
+                else{
+                    $("#resultdisplay").text(`You failed the Exam in${failedsubjects.join(",")}`).slideDown("slow").css("background-color", "red")
+                }
+
+            })
+
+        });
+          window.onload = function(){
+             $("#namebox").val("")
+             $("#dob").val("")
+             $("#age").val("")
+            //  $(".ans").val("")
+          }   
+        
+    </script>
+</head>
+<body>
+    <div id="overall">
+    <form id="form">
+        <label for="name">Name:</label>
+        <input  type="text" name="name" id="namebox" value=""><br>
+        
+         <h4 id="alert"></h4>
+
+        <label for="date" id="date">Date:</label>
+        <input  type="date" name="date" id="dob"><br>
+        <br><br>
+        <label >Age:</label>
+        <input type="text" value="" id="age">
+
+
+    </form>
+    <table id="table">
+        <thead>
+            <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+           </tr>
+        </thead>
+        <tr>
+            <td>English:</td>
+            <td><input class="ans" type="number" data-subject="English"></td>
+        </tr>
+        <div id="div">
+        <tr>
+            <td>Tamil:</td>
+            <td><input class="ans" type="number" data-subject="Tamil"></td>
+        </tr>
+        <tr>
+            <td>Math:</td>
+            <td><input class="ans" type="number" data-subject="Math"></td>
+        </tr>
+        <tr>
+            <td>Science:</td>
+            <td><input class="ans" type="number" data-subject="Science"></td>
+        </tr>
+        <tr>
+            <td>Social:</td>
+            <td><input class="ans" type="number" data-subject="Social"></td>
+        </tr>
+    </div>
+    </table>
+    <button>Click here to find  the Result</button>
+      <div id="resultdisplay" style="display: none; color: white; width: 250px; height: 50px;"></div>
+    </div>  
+</body>
+</html>
