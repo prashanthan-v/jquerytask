@@ -1,0 +1,42 @@
+li{
+    padding: 20px;
+    margin: 5px;
+    display: inline-block;
+}
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: flex-start; /* Align items to start of each row */
+}
+#container{
+    padding: 30px;
+   border: 2px solid chocolate;
+   width: 70%;
+   margin: auto;
+   background-color: violet;
+}
+
+.question{
+    padding: 30px;
+    border: 2px solid blueviolet;
+    width: 70%;
+    margin: auto;  
+    margin-bottom: 10px;
+    background-color: yellow;
+}
+button{
+    height: 40px;
+    width: 70px;
+    background-color: blueviolet;
+    color: white;
+}
+
+#finalanswer{
+    color: black;
+    border-radius: 20%;
+    border: 2px solid  red;
+    text-align: center;
+    background-color: aqua;
+}
