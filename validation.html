@@ -38,6 +38,50 @@
                 $("#alert").text(`Entered word is less than 4 character`)
                 }
             })
+
+            $(".ans").on( 'input',function(){
+                var val =   $(this).val()
+                      
+                      var value = parseInt(val)
+                      if(isNaN(value)){
+                        $(this).parent().next().children().text(`N`)
+                        $(this).parent().next().children().css("background-color", "blue");
+                        $(this).parent().next().children().css("color", "white");
+                      }
+                      if(value<30){
+                        $(this).parent().next().children().text(`F`)
+                        $(this).parent().next().children().css("background-color", "red");
+                        $(this).parent().next().children().css("color", "black");
+                      }
+                      if(value>100){
+                        $(this).parent().next().children().text(`NA`)
+                        $(this).parent().next().children().css("background-color", "violet");
+                        $(this).parent().next().children().css("color", "black");
+                      }
+                      if(value>30&&value<40){
+                        console.log(value)
+                        $(this).parent().next().children().text(`C`)
+                        $(this).parent().next().children().css("background-color", "yellow");
+                        $(this).parent().next().children().css("color", "black");
+                      }
+                      if(value>40&&value<60){
+                        $(this).parent().next().children().text(`B`)
+                        $(this).parent().next().children().css("background-color", "aquamarine");
+                        $(this).parent().next().children().css("color", "black");
+                      }
+
+                      if(value>60&&value<85){
+                        $(this).parent().next().children().text(`A`)
+                        $(this).parent().next().children().css("background-color", "lightgreen");
+                        $(this).parent().next().children().css("color", "black");
+                      }
+
+                      if(value>85&&value<=100){
+                        $(this).parent().next().children().text(`A+`)
+                        $(this).parent().next().children().css("background-color", "violet");
+                        $(this).parent().next().children().css("color", "black");
+                      }
+                    });
             $("button").on("click",function(){
                   console.log("hello")
                   var failed = false;
@@ -53,6 +97,27 @@
                         sum =0;
                         return false;
                       }
+                    //   $(this).on( 'input',function(){
+                    //   if(value>30&&value<40){
+                    //     console.log(value)
+                    //     $(this).parent().next().children().text(`C`)
+                    //     $(this).parent().next().children().css("background-color", "yellow");
+                    //   }
+                    //   if(value>40&&value<60){
+                    //     $(this).parent().next().children().text(`B`)
+                    //     $(this).parent().next().children().css("background-color", "aquamarine");
+                    //   }
+
+                    //   if(value>60&&value<85){
+                    //     $(this).parent().next().children().text(`A`)
+                    //     $(this).parent().next().children().css("background-color", "lightgreen");
+                    //   }
+
+                    //   if(value>85&&value<=100){
+                    //     $(this).parent().next().children().text(`A+`)
+                    //     $(this).parent().next().children().css("background-color", "violet");
+                    //   }
+                    // });
                      if(value<30){
                         failed = true;
                         var subject = $(this).data('subject')
@@ -91,7 +156,7 @@
              $("#namebox").val("")
              $("#dob").val("")
              $("#age").val("")
-            //  $(".ans").val("")
+             $(".ans").val("")
           }   
         
     </script>
@@ -117,33 +182,39 @@
             <tr>
             <th>Subject</th>
             <th>Marks</th>
+            <th>Grade</th>
            </tr>
         </thead>
         <tr>
             <td>English:</td>
             <td><input class="ans" type="number" data-subject="English"></td>
+            <td class="gradecol"><div class="grade"></div></td>
         </tr>
         <div id="div">
         <tr>
             <td>Tamil:</td>
             <td><input class="ans" type="number" data-subject="Tamil"></td>
+            <td class="gradecol"><div class="grade"></div></td>
         </tr>
         <tr>
             <td>Math:</td>
             <td><input class="ans" type="number" data-subject="Math"></td>
+            <td class="gradecol"><div class="grade"></div></td>
         </tr>
         <tr>
             <td>Science:</td>
             <td><input class="ans" type="number" data-subject="Science"></td>
+            <td class="gradecol"><div class="grade"></div></td>
         </tr>
         <tr>
             <td>Social:</td>
             <td><input class="ans" type="number" data-subject="Social"></td>
+            <td class="gradecol"> <div class="grade"></div></td>
         </tr>
     </div>
     </table>
     <button>Click here to find  the Result</button>
-      <div id="resultdisplay" style="display: none; color: white; width: 250px; height: 50px;"></div>
+      <div id="resultdisplay" style="display: none; color: goldenrod; width: 250px; height: 50px;"></div>
     </div>  
 </body>
 </html>

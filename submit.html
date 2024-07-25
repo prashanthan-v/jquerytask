@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <div class="error" id="nameError"></div>
+        </div>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <div class="error" id="usernameError"></div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            $("#myForm").submit(function(event){
+                // Prevent the form from submitting
+                event.preventDefault();
+
+                // Clear previous error messages
+                $(".error").text("");
+
+                // Validate the input fields
+                let isValid = true;
+
+                if($("#name").val() === ""){
+                    $("#nameError").text("Name is required.");
+                    isValid = false;
+                }
+
+                if($("#username").val() === ""){
+                    $("#usernameError").text("Username is required.");
+                    isValid = false;
+                }
+
+                // If all fields are valid, you can proceed with further actions (e.g., AJAX request)
+                if(isValid){
+                    // Your code for successful validation
+                    alert("Form submitted successfully!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

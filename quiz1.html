@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="quiz1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script> 
+              $(document).ready(function(){
+             var total =0;
+         $("li").on("click",function(){  // once you touch the li this function will take over
+           var classname = $(this).attr("class")
+           if(!$(this).parent().hasClass("answered")){
+              if(classname=="correct"){
+                  $(this).css("background-color", "lightgreen")
+                //   $(this).siblings().css("background-color", "white")
+                  total=total+1;
+                  
+                }
+              else{
+                $(this).css("background-color", "lightcoral")
+                    //  $(this).siblings(".correct").css("background-color", "lightgreen")
+                    //  $(".answer").css("display","inline-block")
+                    //  $(".answer").text(`Answer:`+$(this).siblings(".correct").text())
+
+                      $(this).parent().parent().siblings(".answer").css("display","flex")
+                      $(this).parent().parent().siblings(".answer").text(`Answer:`+$(this).siblings(".correct").text())
+                       total = total-0.5     
+                  }
+           
+                     // Mark the parent element to indicate the question has been answered
+                 $(this).parent().addClass("answered");
+ 
+                  // Disable click events for all siblings
+                    //    $(this).siblings().off("click");
+          }
+    
+           
+        
+        //   console.log(total)
+             $("button").click(function(){
+                 $("#finalanswer").text(`You have obtained ${total} out of 10`)
+
+             })
+         })
+         
+        })
+    </script>
+</head>
+<body> 
+     <div class="big"> 
+    <!-- q1 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>What is jQuery?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                    A programming language
+                </li>
+                <li class="correct">
+                    A JavaScript library
+                </li>
+                <li class="wrong">
+                    A database
+                </li>
+                <li class="wrong">
+                    A CSS framework
+                </li>
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+        <!-- q2 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>How do you select an HTML element with the id example in jQuery?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                  $(".example")
+                </li>
+                <li class="correct">
+                  $("#example")
+                </li>
+                <li class="wrong">
+                  $("example")
+                </li>
+                <li class="wrong">
+                  $(example)
+                </li>
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+
+    <!-- q3 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>Which jQuery method is used to hide selected elements?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                  visible(false)
+                </li>
+                <li class="correct">
+                  hide()
+                </li>
+                <li class="wrong">
+                  css("display", "none")
+                </li>
+                <li class="wrong">
+                  none()
+                </li>
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+    <!-- q4 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>How can you add a class highlight to an element with the id content in jQuery?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                  ("#content").addClass = "highlight"
+                </li>
+                <li class="correct">
+                  $("#content").addClass("highlight")
+                </li>
+                <li class="wrong">
+                  $("#content").addClass(highlight)
+                </li>
+                <li class="wrong">
+                  $("#content").addClass(".highlight")
+                </li>
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+          <!-- q5 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>Which jQuery method can be used to get the text content of an element?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                  html()
+                </li>
+                <li class="correct">
+                  text()
+                </li>
+                <li class="wrong">
+                  content()
+                </li>
+                <li class="wrong">
+                  getText()
+                </li>
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+
+    <!-- q6 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>How can you attach a click event to a button with the class btn in jQuery?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                  $(".btn").on("click", function() { /* code */ });
+                </li>
+                <li class="correct">
+                  All of the above
+                </li>
+                <li class="wrong">
+                  $(".btn").click(function() { /* code */ });
+                </li>
+                <li class="wrong">
+                  $(".btn").bind("click", function() { /* code */ });
+                </li>
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+
+     <!-- q7 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>Which method is used to perform an asynchronous HTTP request in jQuery?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                  .http()
+                </li>
+                <li class="correct">
+                  $.ajax()
+                </li>
+                <li class="wrong">
+                  $.fetch()
+                </li>
+                <li class="wrong">
+                  $.request()
+                </li>   
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+            <!-- q8 -->
+    <div class="grid-container">
+        <div class="question">
+            <h1>How do you fade out an element with the id box over 2 seconds in jQuery?</h1>
+        </div>
+        <div class="options">
+            <ul>
+                <li class="wrong">
+                  $("#box").fadeOut("slow")
+                </li>
+                <li class="correct">
+                  $("#box").fadeOut(2000);
+                </li>
+                <li class="wrong">
+                  $("#box").fadeOut(2)
+                </li>
+                <li class="wrong">
+                  $("#box").fadeOut("2000ms");
+                </li>
+              </ul>
+        </div>
+        <div class="answer">
+            
+        </div>
+    </div>
+
+               <!-- q9 -->
+               <div class="grid-container">
+                <div class="question">
+                    <h1>Which method can be used to iterate over each element of a jQuery object?</h1>
+                </div>
+                <div class="options">
+                    <ul>
+                        <li class="wrong">
+                          forEach()
+                        </li>
+                        <li class="correct">
+                          each()
+                        </li>
+                        <li class="wrong">
+                          map()
+                        </li>
+                        <li class="wrong">
+                          loop()
+                        </li>
+                      </ul>
+                </div>
+                <div class="answer">
+                    
+                </div>
+            </div>
+
+
+                  <!-- q10 -->
+                  <div class="grid-container">
+                    <div class="question">
+                        <h1>>Which method is used to perform an asynchronous HTTP request in jQuery?</h1>
+                    </div>
+                    <div class="options">
+                        <ul>
+                            <li class="wrong">
+                              .http()
+                            </li>
+                            <li class="correct">
+                              $.ajax()
+                            </li>
+                            <li class="wrong">
+                              $.fetch()
+                            </li>
+                            <li class="wrong">
+                              $.request()
+                            </li>
+                          </ul>
+                    </div>
+                    <div class="answer">
+                        
+                    </div>
+                </div>
+
+                <button>validate</button>
+                  <h1 id="finalanswer"></h1>
+
+                </div>   
+</body>
+</html>

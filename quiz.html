@@ -20,7 +20,12 @@
                 }
               else{
                 $(this).css("background-color", "lightcoral")
-                     $(this).siblings(".correct").css("background-color", "lightgreen")
+                    //  $(this).siblings(".correct").css("background-color", "lightgreen")
+                    //  $(".answer").css("display","inline-block")
+                    //  $(".answer").text(`Answer:`+$(this).siblings(".correct").text())
+
+                      $(this).parent().parent().siblings(".answer").css("display","inline-block")
+                      $(this).parent().parent().siblings(".answer").text(`Answer:`+$(this).siblings(".correct").text())
                        total = total-0.5     
                   }
            
@@ -51,10 +56,12 @@
     <div id="container">
      
         <div id="Q1">
-                     
+                 <div class="small">   
             <!-- //question  -->
-                <div class="question">  
+                
                   <h1>What is jQuery?</h1>
+                
+                <div id="options">
                    <!-- answers -->
                   <ul>
                     <li class="wrong">
@@ -70,9 +77,12 @@
                         A CSS framework
                     </li>
                   </ul>
+                 
                 </div>
-                
+                <div class="answer"></div>
+              </div> 
                <!-- //question  1-->
+                <div class="small">
                 <div class="question">  
                     <h1>How do you select an HTML element with the id example in jQuery?</h1>
                      <!-- answers -->
@@ -91,8 +101,8 @@
                       </li>
                     </ul>
                   </div>
-
-                  
+                  <div class="answer"></div>
+                </div>
                   
 
                   <!-- question3 -->
@@ -142,6 +152,7 @@
                   <!-- question5 -->
                 <div class="question">  
                     <h1>Which jQuery method can be used to get the text content of an element?</h1>
+                    <h2 class="answer">answers</h2>
                      <!-- answers -->
                     <ul>
                       <li class="wrong">
@@ -197,7 +208,7 @@
                       </li>
                       <li class="wrong">
                         $.request()
-                      </li>
+                      </li>   
                     </ul>
                   </div>
                

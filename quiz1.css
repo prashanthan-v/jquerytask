@@ -1,0 +1,72 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    grid-template-rows: auto auto; /* Two rows with height adjusted to content */
+    gap: 10px; /* Space between grid items */
+    width: 60%;
+    margin: auto;
+    border: 2px solid blueviolet;
+    padding: 20px;
+    background-color: yellow;
+    margin-bottom: 10px;
+}
+
+.question {
+    grid-column: 1 / span 2; /* Span both columns */
+    /* background-color: yellow; */
+    padding: 10px;
+    /* border: 1px solid #ccc; */
+}
+
+.options {
+    grid-column: 1; /* First column of second row */
+    
+    padding: 10px;
+  
+}
+li{
+    padding: 10px;
+}
+
+.answer {
+    grid-column: 2; /* Second column of second row */
+    background-color: lightblue;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: none;
+    max-height: 50px ;
+    max-width: fit-content;
+    border-radius: 30px;
+    padding-top: 25px;
+}
+li{
+    padding: 20px;
+    margin: 5px;
+    display: inline-block;
+}
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: flex-start; /* Align items to start of each row */
+}
+
+button{
+    height: 40px;
+    width: 70px;
+    background-color: blueviolet;
+    color: white;
+}
+
+#finalanswer{
+    color: black;
+    border-radius: 20%;
+    border: 2px solid  red;
+    text-align: center;
+    background-color: red;
+}
+
+.big{
+    background-color: aqua;
+}
